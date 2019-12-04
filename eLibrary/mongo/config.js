@@ -9,6 +9,7 @@ const connectionString = 'mongodb+srv://admin:admin123@elibrarycluster-6vwfi.mon
 //Start connection
 mongoose.connect(connectionString, { useNewUrlParser: true, 
     useCreateIndex: true,
-    useUnifiedTopology: true })
+    useUnifiedTopology: true,
+    useFindAndModify: false})
 
 //console.log('Database connection established')

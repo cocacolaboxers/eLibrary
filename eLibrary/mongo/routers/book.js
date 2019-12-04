@@ -26,5 +26,34 @@ router.get('/books', (req,res) => {
     })
 })
 
+//Update book attributes
+router.patch('/books/:id', async (req,res) => {
+    try{
+        const book = await Book.findByIdAndUpdate(req.params.id, 
+            req.body, {new: true, runValidators: true})
+        
+        if(!book){
+            return res.status(404).send()
+        }
+
+        res.send(book)
+    } catch(e) {
+    res.status(500).send(e)
+}
+})
+
+//Delete a book
+router.delete('/books/:id', (req,res) => {
+    const _id = req.params.id
+    Book.findByIdAndDelete(_id).then((book) => {
+        if(!book){
+            return res.status(404).send()
+        }
+        res.send(book)
+    }).catch((e) => {
+        res.status(500).send(e)
+    })
+})
+
 //Export the router so it can be used by other files
 module.exports = router
