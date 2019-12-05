@@ -60,7 +60,7 @@ render() {
             <h3>Add a new book to our evergrowing collection!</h3>
             <form onSubmit = {this.onCreate}>
             <div className = "form-group"> 
-                <label>Title: </label>
+                <label>Title</label>
                 <input  type = "text"
                     required
                     className = "form-control"
@@ -69,7 +69,7 @@ render() {
                     />
             </div>
             <div className = "form-group">
-                <label>Author: </label>
+                <label>Author</label>
                 <input 
                     type = "text" 
                     className = "form-control"
@@ -79,7 +79,7 @@ render() {
             </div>
            
             <div className = "form-group">
-                <label>Summary: </label>
+                <label>Summary</label>
                 <input 
                     type = "text" 
                     className = "form-control"

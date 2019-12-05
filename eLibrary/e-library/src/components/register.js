@@ -57,10 +57,10 @@ onJoin(e){
 render() {
     return (
         <div className = "container">
-            <h3>Get access to a bunch of free books!</h3>
+            <h3>Gain access to a bunch of free books!</h3>
             <form onSubmit = {this.onJoin}>
             <div className = "form-group"> 
-                <label>Tell us your name: </label>
+                <label>Name</label>
                 <input  type = "text"
                     required
                     className = "form-control"
@@ -69,19 +69,19 @@ render() {
                     />
             </div>
             <div className = "form-group">
-                <label>Give us a valid email address: </label>
+                <label>Email</label>
                 <input 
-                    type = "text" 
+                    type = "email" 
                     className = "form-control"
                     value = {this.state.email}
                     onChange = {this.onChangeEmail}
                     />
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
             </div>
-           
             <div className = "form-group">
-                <label>Choose a strong ass password</label>
+                <label>Password</label>
                 <input 
-                    type = "text" 
+                    type = "password" 
                     className = "form-control"
                     value = {this.state.password}
                     onChange = {this.onChangePassword}
