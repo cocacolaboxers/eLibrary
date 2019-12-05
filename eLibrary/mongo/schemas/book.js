@@ -14,19 +14,15 @@ const bookSchema = new mongoose.Schema ({
         type: String,
         required: true
     },
-    creationDate:{
-        type: Date
-    },
-    lasModification:{
-        type: Date
-    },
     summary: {
         type: String
     }
+},{
+    timestamps: true
 })
 
 //Define the model
-const Book = mongoose.model('book', bookSchema)
+const Book = mongoose.model('Book', bookSchema)
 
 //Export the model
 module.exports = Book
