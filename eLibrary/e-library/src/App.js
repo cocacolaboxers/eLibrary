@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import Navbar from "./components/navbar.js"
 import BookList from "./components/bookList.js";
 import CreateBook from "./components/createBook.js";
+import Register from "./components/register.js";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <br/>
       <Route path = "/collection" component = {BookList} />
       <Route path = "/create" component = {CreateBook} />
+      <Route path = "/register" component = {Register} />
     </Router>
   );
 }
