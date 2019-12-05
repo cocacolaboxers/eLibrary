@@ -37,7 +37,7 @@ render() {
             <div>
           <h3>Book Collection</h3>
           <table className="table">
-            <thead className="thead-light">
+            <thead className="thead-dark">
               <tr>
                 <th>Title</th>
                 <th>Author</th>
