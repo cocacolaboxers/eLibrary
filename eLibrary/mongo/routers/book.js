@@ -7,7 +7,7 @@ const router = new express.Router()
 const Book = require('../schemas/book')
 
 //Create book
-router.post('/books', (req,res) => {
+router.post('/create', (req,res) => {
     const book = new Book(req.body)
 
     book.save().then(() => {
