@@ -89,7 +89,7 @@ render() {
             </div>
 
             <div className = "form-group">
-                <input type = "submit" value = "Create" className = "btn btn-outline-secondary" style = {{}} />
+                <input type = "submit" value = "Create" className = "btn btn-outline-success" style = {{}} />
             </div>
             </form>
         </div>

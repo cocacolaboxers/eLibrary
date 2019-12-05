@@ -35,7 +35,7 @@ render() {
     return (
         <div className = "container">
             <div>
-          <h3>Book Collection</h3>
+          <h3>Our Book Collection</h3>
           <table className="table">
             <thead className="thead-dark">
               <tr>
