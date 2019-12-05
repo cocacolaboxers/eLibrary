@@ -1,6 +1,7 @@
 //Handling of routing, app startup and port setup
 
 const express = require('express')
+const cors = require('cors');
 require('./mongo/config')
 
 //Routers
@@ -8,9 +9,10 @@ const bookRouter = require('./mongo/routers/book')
 const userRouter = require('./mongo/routers/user')
 
 const app = express()
-const port = 3000
+const port = 3001
 
 app.use(express.json())
+app.use(cors())
 
 //Making routers usable
 app.use(bookRouter)

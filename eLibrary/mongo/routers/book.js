@@ -4,7 +4,7 @@
 
 const express = require('express')
 const router = new express.Router()
-const Book = require('../schemas/book')
+let Book = require('../schemas/book')
 
 //Create book
 router.post('/create', (req,res) => {
