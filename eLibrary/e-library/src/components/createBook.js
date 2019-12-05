@@ -80,14 +80,17 @@ render() {
            
             <div className = "form-group">
                 <label>Summary</label>
-                <input 
-                    type = "text" 
-                    className = "form-control"
-                    value = {this.state.summary}
-                    onChange = {this.onChangeSummary}
-                    />
+                <textarea className="form-control" 
+                id="summaryFormControl" rows="3"
+                value = {this.state.summary}
+                onChange = {this.onChangeSummary}
+                ></textarea>
             </div>
-
+            {/*Chulería no funcional*/}
+            <div class="form-group">
+            <label for="exampleFormControlFile1">Add .txt file</label>
+            <input type="file" class="form-control-file" id="exampleFormControlFile1"/>
+            </div>
             <div className = "form-group">
                 <input type = "submit" value = "Create" className = "btn btn-outline-success" style = {{}} />
             </div>

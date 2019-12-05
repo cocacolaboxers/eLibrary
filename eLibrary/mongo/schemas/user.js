@@ -24,6 +24,21 @@ const userSchema = new mongoose.Schema ({
     }
 })
 
+userSchema.statics.findByCredentials = async (email, password) => {
+    const user = await User.findOne({ email })
+
+    if(!user){
+        throw new Error('Unable to login');
+    }
+
+    const passwordsMatch = (password === user.password)
+    if(!passwordsMatch){
+         throw new Error('Unable to login');
+    }
+    
+    return user
+}
+
 //Define the model
 const User = mongoose.model('User', userSchema)
 
