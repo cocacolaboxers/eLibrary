@@ -47,11 +47,11 @@ onCreate(e){
 
     console.log(book)
 
-    axios.post('http://localhost:3001/create', book)
+    axios.post('http://localhost:3000/create', book)
     .then(res => console.log(res.data));
 
     //Take user back to book collection
-    //window.location = '/collection';
+    window.location = '/collection';
 }
 
 render() {

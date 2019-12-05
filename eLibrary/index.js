@@ -9,7 +9,7 @@ const bookRouter = require('./mongo/routers/book')
 const userRouter = require('./mongo/routers/user')
 
 const app = express()
-const port = 3001
+const port = 3000
 
 app.use(express.json())
 app.use(cors())
