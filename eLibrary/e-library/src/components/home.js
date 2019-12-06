@@ -61,9 +61,6 @@ render() {
             <p style={{color: 'red'}}><em>
                 Sorry, try again
             </em></p>
-            <p>
-               Would you like to <Link to = {"/register"}> register </Link> instead?
-             </p>
         </div>
       )
     return (
@@ -97,6 +94,9 @@ render() {
                 </div>
             </form>  
             {this.state.errorFlag ? <ErrorMessage/> : null}
+            <p>
+               Not a member? <Link to = {"/register"}> Register </Link>
+             </p>
         </div>
     )
   }
