@@ -7,13 +7,19 @@ import Navbar from "./components/navbar.js"
 import BookList from "./components/bookList.js";
 import CreateBook from "./components/createBook.js";
 import Register from "./components/register.js";
+import Home from "./components/home.js";
+import BookProfile from "./components/bookProfile.js";
+import EditBook from "./components/editBook.js"
 
 function App() {
   return (
     <Router>
       <Navbar/>
       <br/>
-      <Route path = "/collection" component = {BookList} />
+      <Route path = "/" exact component = {Home} />
+      <Route path = "/read" component = {BookList} />
+      <Route path = "/collection/:id" component = {BookProfile} />
+      <Route path = "/edit/:id" component = {EditBook} />
       <Route path = "/create" component = {CreateBook} />
       <Route path = "/register" component = {Register} />
     </Router>
