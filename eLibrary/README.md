@@ -1,7 +1,7 @@
 # eLibrary
 
-## How to run
-Run the command `npm start` to start the program.
+## How to install
+Run the command `npm install` to install all the dependencies.
 
-## How to build
-Run the command `npm run build`
+## How to run
+Run the command `npm start` to start the app.
