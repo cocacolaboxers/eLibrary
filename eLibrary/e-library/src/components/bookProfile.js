@@ -41,6 +41,10 @@ export default class BookProfile extends Component {
         window.location = '/edit/' + this.props.match.params.id;
     }
 
+    takeMetoRead(){
+        window.location = '/enjoy';
+    }
+
     render(){
         return (
             <div className = "container">
@@ -66,7 +70,16 @@ export default class BookProfile extends Component {
                     {this.state.summary}
                 </p>
                 <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-secondary">Read</button>
+                    <button type="button" 
+                    class="btn btn-secondary"
+                    onClick = {() => {this.takeMetoRead()}}>Read</button>
+                    <button type="button" 
+                    class="btn btn-secondary"
+                    onClick = {() => {}}>Listen</button>
+                </div>
+                <br/>
+                <br/>
+                <div class="btn-group" role="group" aria-label="Basic example">
                     <button type="button" 
                     class="btn btn-secondary"
                     onClick = {() => {this.takeMetoEdit()}}>Edit</button>
