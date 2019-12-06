@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export default class CreateBook extends Component {
+export default class EditBook extends Component {
 
 constructor(props){
     super(props);
@@ -9,7 +9,7 @@ constructor(props){
     this.onChangeTitle = this.onChangeTitle.bind(this);
     this.onChangeAuthor = this.onChangeAuthor.bind(this);
     this.onChangeSummary = this.onChangeSummary.bind(this);
-    this.onCreate = this.onCreate.bind(this);
+    this.onSaveChanges = this.onSaveChanges.bind(this);
 
     this.state = {
         title: '',
@@ -17,6 +17,20 @@ constructor(props){
         summary: ''
     }
 }
+
+componentDidMount() {
+    axios.get('http://localhost:3000/books/' + this.props.match.params.id)
+      .then(response => {
+        this.setState({
+            title: response.data.title,
+            author: response.data.author,
+            summary: response.data.summary
+        })   
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+  }
 
 onChangeTitle(e){
      this.setState({
@@ -36,7 +50,7 @@ onChangeSummary(e){
     });
 }
 
-onCreate(e){
+onSaveChanges(e){
     e.preventDefault();
 
     const book = {
@@ -47,18 +61,18 @@ onCreate(e){
 
     console.log(book)
 
-    axios.post('http://localhost:3000/create', book)
+    axios.patch('http://localhost:3000/books/' + this.props.match.params.id, book)
     .then(res => console.log(res.data));
 
-    //Take user back to book collection
-    window.location = '/read';
+    //Take user back to book
+    window.location = '/collection/' + this.props.match.params.id;
 }
 
 render() {
     return (
         <div className = "container">
-            <h3>Add a new book to our evergrowing collection!</h3>
-            <form onSubmit = {this.onCreate}>
+            <h3>Welcome to the book editor!</h3>
+            <form onSubmit = {this.onSaveChanges}>
             <div className = "form-group"> 
                 <label>Title</label>
                 <input  type = "text"
@@ -92,7 +106,7 @@ render() {
             <input type = "file" className="form-control-file" id="exampleFormControlFile1"/>
             </div>
             <div className = "form-group">
-                <input type = "submit" value = "Create" className = "btn btn-outline-success" style = {{}} />
+                <input type = "submit" value = "Save changes" className = "btn btn-outline-success" style = {{}} />
             </div>
             </form>
         </div>
