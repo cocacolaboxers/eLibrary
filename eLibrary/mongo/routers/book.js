@@ -26,6 +26,19 @@ router.get('/books', (req,res) => {
     })
 })
 
+//Find a single book using its ID
+router.get('/books/:id', (req,res) => {
+    const _id = req.params.id
+    Book.findById(_id).then((book) => {
+        if(!book){
+            return res.status(404).send()
+        }
+        res.send(book)
+    }).catch((e) => {
+        res.status(500).send(e)
+    })
+})
+
 //Update book attributes
 router.patch('/books/:id', async (req,res) => {
     try{

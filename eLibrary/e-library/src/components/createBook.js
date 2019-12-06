@@ -51,7 +51,7 @@ onCreate(e){
     .then(res => console.log(res.data));
 
     //Take user back to book collection
-    window.location = '/collection';
+    window.location = '/read';
 }
 
 render() {
@@ -87,9 +87,9 @@ render() {
                 ></textarea>
             </div>
             {/*Chulería no funcional*/}
-            <div class="form-group">
-            <label for="exampleFormControlFile1">Add .txt file</label>
-            <input type="file" class="form-control-file" id="exampleFormControlFile1"/>
+            <div className ="form-group">
+            <label form = "exampleFormControlFile1">Add .txt file</label>
+            <input type = "file" className="form-control-file" id="exampleFormControlFile1"/>
             </div>
             <div className = "form-group">
                 <input type = "submit" value = "Create" className = "btn btn-outline-success" style = {{}} />

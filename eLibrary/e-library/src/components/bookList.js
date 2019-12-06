@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Book = props => (
     <tr>
-      <td>{props.book.title}</td>
-      <td>{props.book.author}</td>
-      <td>{props.book.summary}</td>
+      <td>
+          <Link to = {"/collection/" + props.book._id}> {props.book.title} </Link>
+        </td>
     </tr>
   )
 
@@ -27,11 +28,11 @@ componentDidMount(){
 
 bookList() {
     return this.state.books.map(currentBook => {
-      return <Book book = {currentBook} />;
+      return <Book book = {currentBook} key = {currentBook._id}/>;
     })
   }
 
-render() {
+render() { 
     return (
         <div className = "container">
             <div>
@@ -39,9 +40,7 @@ render() {
           <table className="table">
             <thead className="thead-dark">
               <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Summary</th>
+                <th>Available titles</th>
               </tr>
             </thead>
             <tbody>
