@@ -36,8 +36,9 @@ export default class BookProfile extends Component {
         //Take user to book collection
         window.location = '/read';
     }
-
-    editBook() {
+    
+    takeMetoEdit(){
+        window.location = '/edit/' + this.props.match.params.id;
     }
 
     render(){
@@ -68,7 +69,7 @@ export default class BookProfile extends Component {
                     <button type="button" class="btn btn-secondary">Read</button>
                     <button type="button" 
                     class="btn btn-secondary"
-                    onClick = {() => {this.editBook()}}>Edit</button>
+                    onClick = {() => {this.takeMetoEdit()}}>Edit</button>
                     <button type="button" 
                     class="btn btn-secondary"
                     onClick = {() => {this.deleteBook()}}>Delete</button>

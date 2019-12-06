@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 //import Library from '../lib.jpg';
 
 export default class Home extends Component {
@@ -13,7 +14,8 @@ constructor(props){
 
     this.state = {
         email: '',
-        password: ''
+        password: '',
+        errorFlag: false
     }
 }
 
@@ -40,14 +42,30 @@ onLog(e){
     console.log(user)
 
     axios.post('http://localhost:3000/login', user)
-    .then(res => console.log(res.data));
-
-
-    //Take logged user to book collection
-    //window.location = '/collection';
+    .then(res => {
+        console.log(res.data)
+        //Take logged user to book collection
+        window.location = '/read';
+    }).catch(error => {
+        // Handle error.
+        console.log('An error occurred:', error);
+        this.setState({
+            errorFlag: true
+        })
+      });
 }
 
 render() {
+    const ErrorMessage = () => (
+        <div>
+            <p style={{color: 'red'}}><em>
+                Sorry, try again
+            </em></p>
+            <p>
+               Would you like to <Link to = {"/register"}> register </Link> instead?
+             </p>
+        </div>
+      )
     return (
         <div className = "container">
             {/* <img src = {Library} class="img-fluid" alt = ""/> */}
@@ -78,6 +96,7 @@ render() {
                     </div>
                 </div>
             </form>  
+            {this.state.errorFlag ? <ErrorMessage/> : null}
         </div>
     )
   }
