@@ -6,7 +6,7 @@ export default class Navbar extends Component {
   render() {
     return (
       <nav className="navbar navbar-light   navbar-expand-lg" style = {{backgroundColor: '#cddc39'}}>
-        <Link to="/" className="navbar-brand">eLibrary</Link>
+        <Link to="/home" className="navbar-brand">eLibrary</Link>
         <div className="collpase navbar-collapse">
         <ul className="navbar-nav mr-auto">
           <li className="navbar-item">
